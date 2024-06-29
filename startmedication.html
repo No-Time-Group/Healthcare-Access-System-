@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Medication Treatment</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .mySlides {
+            display: none;
+        }
+        .mySlides img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        .medication-info {
+            margin-bottom: 20px;
+        }
+        .hospital-info {
+            margin-bottom: 20px;
+        }
+        .first-aid-info {
+            margin-bottom: 20px;
+        }
+        .treatment-instructions {
+            margin-bottom: 20px;
+        }
+        .treatment-instructions h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .treatment-instructions p {
+            margin-bottom: 10px;
+        }
+        .treatment-instructions ul {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        .imagesss{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Start Medication Treatment</h1>
+        
+        
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img  class="imagesss" src="allimages/div-image.jpg" alt="Medication 1">
+                <div class="text">Medication 1 - Description goes here</div>
+            </div>
+            <div class="mySlides">
+                <img src="allimages/allmedication/s9.jpg" alt="Medication 2">
+                <div class="text">Medication 2 - Description goes here</div>
+            </div>
+            <div class="mySlides">
+                <img src="allimages/black.jpeg" alt="Medication 3">
+                <div class="text">Medication 3 - Description goes here</div>
+            </div>
+            
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        
+        <div class="medication-info">
+            <h2>Medication Information</h2>
+            <p>Here you can provide detailed information about the medications, their uses, dosage instructions, side effects, etc.</p>
+        </div>
+        
+        
+        <div class="hospital-info">
+            <h2>Nearby Hospitals</h2>
+            <ul>
+                <li><strong>Hospital Name 1:</strong> Address, Contact Information</li>
+                <li><strong>Hospital Name 2:</strong> Address, Contact Information</li>
+                <li><strong>Hospital Name 3:</strong> Address, Contact Information</li>
+                
+            </ul>
+        </div>
+        
+        
+        <div class="first-aid-info">
+            <h2>First Aid Instructions</h2>
+            <p>Include basic first aid instructions relevant to the medication or medical condition. For example:</p>
+            <ul>
+                <li>Instructions for common symptoms or emergencies</li>
+                <li>Steps to take before medical help arrives</li>
+                <li>Emergency contact numbers</li>
+            </ul>
+        </div>
+        
+        
+        <div class="treatment-instructions">
+            <h2>Self-Treatment Following Doctor's Instructions</h2>
+            <p>It's important to follow your doctor's instructions carefully when self-treating. Here are some general guidelines:</p>
+            <ul>
+                <li>Take medications as prescribed, at the correct times and dosages.</li>
+                <li>Monitor your symptoms and report any changes to your doctor.</li>
+                <li>Avoid activities or substances that may interfere with your medication.</li>
+                <li>Keep emergency contact information handy in case of severe reactions.</li>
+            </ul>
+            <p>For specific conditions or medications, consult with your healthcare provider for personalized advice.</p>
+        </div>
+        
+        <button id="start-medication-btn" onclick="startMedication()">
+            <a href="continuation.html">Start Medication</a> 
+        </button>
+    </div>
+
+    
+    <script>
+        var slideIndex = 0;
+        var timeout;
+
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            timeout = setTimeout(showSlides, 5000); 
+        }
+
+        function plusSlides(n) {
+            clearTimeout(timeout);
+            slideIndex += n;
+            showSlides();
+        }
+
+        
+        function startMedication() {
+            
+            window.location.href = document.querySelector('#start-medication-btn a').getAttribute('href');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pharmacy Services</title>
+	<style>
+		.slideshow {
+			width: 100%;
+			height: 300px;
+			margin: 20px 0;
+			position: relative;
+		}
+		.slideshow img {
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: opacity 0.5s;
+		}
+		.slideshow img-active {
+			opacity: 1;
+		}
+		.slideshow img-inactive {
+			opacity: 0;
+		}
+		.service-container {
+			margin: 20px 0;
+		}
+	</style>
+</head>
+<body>
+	<h1>Pharmacy Services</h1>
+	<div class="service-container">
+		<h2>Medication Management</h2>
+		<div class="slideshow">
+			<img src="medication-management-image1.jpg" class="slideshow-img">
+			<img src="medication-management-image2.jpg" class="slideshow-img">
+			<img src="medication-management-image3.jpg" class="slideshow-img">
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+		<ul>
+			<li>Medication therapy management</li>
+			<li>Medication synchronization</li>
+			<li>Medication adherence programs</li>
+		</ul>
+	</div>
+	<div class="service-container">
+		<h2>Immunizations</h2>
+		<div class="slideshow">
+			<img src="immunizations-image1.jpg" class="slideshow-img">
+			<img src="immunizations-image2.jpg" class="slideshow-img">
+			<img src="immunizations-image3.jpg" class="slideshow-img">
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+		<ul>
+			<li>Flu shots</li>
+			<li>COVID-19 vaccines</li>
+			<li>Other vaccinations</li>
+		</ul>
+	</div>
+	<div class="service-container">
+		<h2>Health Screenings</h2>
+		<div class="slideshow">
+			<img src="health-screenings-image1.jpg" class="slideshow-img">
+			<img src="health-screenings-image2.jpg" class="slideshow-img">
+			<img src="health-screenings-image3.jpg" class="slideshow-img">
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+		<ul>
+			<li>Blood pressure checks</li>
+			<li>Cholesterol screenings</li>
+			<li>Diabetes testing</li>
+		</ul>
+	</div>
+	
+	<script>
+		
+		const slideshows = document.querySelectorAll('.slideshow');
+		slideshows.forEach(slideshow => {
+			const imgs = slideshow.querySelectorAll('img');
+			let currentImg = 0;
+			setInterval(() => {
+				imgs[currentImg].classList.remove('img-active');
+				currentImg = (currentImg + 1) % imgs.length;
+				imgs[currentImg].classList.add('img-active');
+			}, 3000);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dental Care Services</title>
+    <style>
+			body{
+				padding: 50px;
+            display: grid;
+             place-items: center;
+             height: 100vh;
+						 background-color: greenyellow;
+			}
+        .slideshow {
+            width: 300px;
+            height: 300px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between; 
+						/* to evenly space images */
+        }
+        .slideshow img {
+            width: 48%; /* adjust width as needed */
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s;
+        }
+        .service-container {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .service-container .content {
+            flex: 1;
+            padding: 0 20px; /* adjust padding as needed */
+        }
+        .service-container .slideshow-container {
+            flex: 1;
+        }
+				.content{
+					font-family: Arial, Helvetica, sans-serif;
+				}
+    </style>
+</head>
+<body>
+    <h1>Dental Care Services</h1>
+
+    <div class="service-container">
+        <div class="content">
+            <h2>Tooth Decay services</h2>
+            <p>Cavities can develop when bacteria in our mouth break down food particles, especially sugars and starches. Regular brushing, flossing, and check-ups can help prevent tooth decay.
+						</p>
+            <ul>
+                <li>Professional teeth cleaning</li>
+                <li>Plaque and tartar removal</li>
+                <li>Polishing and whitening</li>
+            </ul>
+        </div>
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <img src="allimages/d1.jpg" class="slideshow-img">
+                <img src="allimages/d4.jpg" class="slideshow-img">
+                <img src="allimages/d3 (1).jpg" class="slideshow-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="service-container">
+        <div class="content">
+            <h2>Dental Fillings services</h2>
+            <p>Dental fitting refers to the process of adjusting or modifying a dental appliance, such as dentures, braces, or a mouthguard, to ensure a proper fit and comfortable wear. A proper dental fitting is crucial to:
+						</p>
+            <ul>
+                <li>Tooth-colored fillings</li>
+                <li>Amalgam fillings</li>
+                <li>Composite fillings</li>
+            </ul>
+        </div>
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <img src="allimages/d8.jpg" class="slideshow-img">
+                <img src="allimages/d7.jpg" class="slideshow-img">
+                <img src="allimages/d1.jpg" class="slideshow-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="service-container">
+        <div class="content">
+            <h2>Dental Crowns</h2>
+            <p>A dental crown is a cap that is fitted over a tooth, either to protect it from damage or to restore its shape and appearance.
+						</p>
+            <ul>
+                <li>Porcelain crowns</li>
+                <li>Gold crowns</li>
+                <li>Ceramic crowns</li>
+            </ul>
+        </div>
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <img src="allimages/d3 (1).jpg" class="slideshow-img">
+                <img src="allimages/sam.jpeg" class="slideshow-img">
+                <img src="allimages/d8.jpg" class="slideshow-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Add more services and slideshows as needed -->
+    <script>
+        // Slideshow script
+        const slideshows = document.querySelectorAll('.slideshow');
+        slideshows.forEach(slideshow => {
+            const imgs = slideshow.querySelectorAll('img');
+            let currentImg = 0;
+            setInterval(() => {
+                imgs.forEach(img => img.classList.remove('img-active'));
+                imgs[currentImg].classList.add('img-active');
+                currentImg = (currentImg + 1) % imgs.length;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Healthcare Access</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'poppins';
+        
+
+      }
+      div{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .container{
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0,4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+      }
+      .content{
+        text-align: center;
+      }
+      .content h1{
+        font-size: 95px;
+        color: white;
+        margin-bottom: 50px;
+
+
+      }
+      .content a{
+        font-size: 23px;
+        color: white;
+        text-decoration: none;
+        border: 2px solid white;
+        padding: 15px 25px;
+        border-radius: 50px;
+        transition: 0.3s;
+      }
+      .content a:hover{
+        background-color: white;
+        color: black;
+      }
+      .background-clip{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+      }
+      @media(min-aspect-ratio:16/9){
+        .background-clip{
+          width: 100%;
+          height: auto;
+        }
+      }
+      @media(max-aspect-ratio:16/9){
+        .background-clip{
+          width: auto;
+          height: 100%;
+        }
+      }
+      
+      
+     
+				
+			
+			.search-bar{
+				display:block;
+				
+			}
+			.video-title{
+        margin-top: 15px;
+				font-family: Arial;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+			}
+			.video-text{
+				text-align: center;
+        margin-top: 15px;
+        line-height: 22px;
+        font-family: Arial;
+        color: rgb(96,96,96);
+				
+			}
+      .video-text2{
+        text-align: center;
+        margin-top: 10px;
+        line-height: 22px;
+        font-family: Arial;
+        color: rgb(96,96,96);
+
+      }
+      .blue{
+        color: blue;
+        font-family: Arial;
+      }
+      .link{
+        color: blue;
+        font-family: Arial;
+      }
+      .link:hover{
+        text-decoration: underline;
+        cursor: pointer;
+        color: green;
+        transition:cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+      }
+      .image2{
+        display:inline-block;
+        margin-top: 100px;
+        border-radius: 4px;
+        height: 195px;
+        
+        
+        
+      }
+      
+        
+      
+      .video-preview{
+        display: inline-block;
+        
+        vertical-align: bottom;
+        margin-right: 1px;
+        
+      }
+      .video-preview2{
+        display: inline-block;
+        margin-right: 1px;
+        vertical-align: bottom;
+        
+        
+      }
+      .image{
+        border-radius: 4px;
+        display: block;
+        width: auto;
+        height: auto;
+        max-width:100%;
+        max-height: 100%;
+        margin-top: 100px;
+
+      
+        
+
+        
+        
+        
+      }
+      .image3{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin-top: 100px;
+        border-radius: 3px;
+
+
+
+
+        
+        
+        
+
+      }
+      .video-preview4{
+    
+        width: 200px;
+        height: 194px;
+        vertical-align: top;
+
+        
+        
+      }
+      .all-images{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+      .all-images img{
+        width: 100%;
+      }
+      .video-preview, .video-preview2, .video-preview3, .video-preview4{
+        margin-right: 10px;
+      }
+      .Questions{
+        font-weight: bold;
+        font-family: Arial;
+        margin-top: 40px;
+      }
+      .code{
+        padding: 0;
+        margin: 0;
+        font-family: monospace;
+
+
+      }
+      ul {
+        list-style: none;
+        background: #22438C;
+        }
+      ul li {
+        display: inline-block;
+        position:relative;
+
+      }
+      ul li a{
+        display: block;
+        padding: 20px 25px;
+        color: #FFF;
+        text-decoration: none;
+        text-align: center;
+        font-size: 20px;
+
+
+      }
+      ul li ul.dropdown li{
+        display: block;
+      }
+      ul li ul.dropdown{
+        width: 100%;
+        background: #22438C;
+        position: absolute;
+        z-index: 999;
+        display: none;
+      }
+      ul li a:hover{
+        background: #112C66;
+        color: rgb(4, 46, 4);
+        background-color: rgb(92, 92, 227);
+        }
+        ul li:hover ul.dropdown{
+          display: block;
+        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+.faq-section {
+    background-color: pink;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.faq-section h2 {
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin: 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.faq-question::after {
+    content: '\25BC'; 
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+input[type="checkbox"] {
+    display: none;
+    
+}
+
+input[type="checkbox"]:checked ~ .faq-answer {
+    max-height: 1000px;
+}
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+    }
+    body{
+      font-family: 'poppins';
+      width: 100%;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+
+
+    }
+    .row{
+      width: 80%;
+      max-width: 1170px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap:50px;
+      overflow-x: hidden;
+      padding: 5rem 0;
+
+
+
+    }
+    .row.imgwrapper{
+      overflow: hidden;
+
+    }
+    .row.imgwrapper img{
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      transition: 0.3s;
+
+    }
+    .row.imgwrapper:hover img{
+      transform: scale(1.25)
+    }
+    .row.contentwrapper{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 30px;
+
+
+    }
+    .row.contentwrapper span.textwrapper{
+      display:block;
+      font-size: 20px;
+      text-transform: capitalize;
+      display:flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      
+
+
+
+
+    }
+    .row.row.contentwrapper span.textwrapper span{
+      display:inline-block;
+      background: #383f47;
+      width: 70px;
+      height:5px;
+      
+
+    }
+    .row.contentwrapper h2{
+      font-size: 40px;
+      font-weight: 700;
+      color: #383f47;
+      padding-bottom: 20px;
+      
+
+    }
+    .row.contentwrapper p{
+      font-size: 16px;
+      line-height: 25px;
+      padding-bottom: 25px;
+      
+
+
+
+    }
+    .row.contentwrapper a{
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      background: #383f47;
+      color: #fff;
+      padding: 15px 40px;
+      letter-spacing: 1px;
+      user-select:none;
+      
+
+
+    }
+    body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body1 {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+    }
+    footer1 {
+      background-color: #003366;
+      color: white;
+      padding: 3rem 1rem;
+    }
+    .container1 {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: pink;
+    }
+    .row1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .col1 {
+      flex: 1 1 300px;
+      margin-right: 1rem;
+    }
+    .col:last-child {
+      margin-right: 0;
+    }
+    .col1 h3 {
+      color: #ff3366;
+      margin-bottom: 1rem;
+      position: relative;
+      font-size: 1.5rem;
+    }
+    .col1 h3::after {
+      content: '';
+      height: 3px;
+      width: 50px;
+      background-color: #ff3366;
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    .col1 h3:hover::after {
+      width: 30px;
+    }
+    .col1 .social1 a i {
+      color: #ff3366;
+      font-size: 1.5rem;
+      margin-right: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .col1 .social1 a i:hover {
+      transform: scale(1.3);
+      filter: grayscale(25%);
+    }
+    .col1 .links1 a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .col1 .links1 a:hover {
+      transform: translateX(-5px);
+      color: #ff3366;
+    }
+    .col1 .contact-details1 {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .col1 .contact-details1 i {
+      font-size: 1.2rem;
+      margin-right: 10px;
+      color: #ff3366;
+    }
+    .form1 {
+      display: flex;
+      align-items: center;
+    }
+    .form1 input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .form1 button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff3366;
+      color: white;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .col1 {
+        flex: 1 1 100%;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+      }
+    }
+    .links1{
+      display: block;
+    }
+  
+
+
+        
+      
+        
+      
+			
+
+
+      
+
+    </style>
+  </head>
+  <body>
+    
+    
+    <ul class="nav">
+     
+     <li><a href="terms .html">login</a></li>
+      <li>
+        <a href="shopping.html">services &#9660;</a>
+        <ul class="dropdown">
+          <li><a href=""></a> </li>
+          <li><a href="co">contact us</a> </li>
+          <li><a href="padriatic.html">Pediatric Care</a></li>
+          <li><a href="dentalcare.html">Dental Care</a> </li> 
+          
+        </ul>
+      </li>
+      <li><a href="about-us.html">About us</a> </li>
+          <li><a href="shopping.html">shop now</a> </li> 
+    </ul>
+    <div class="container">
+      <video autoplay loop muted plays-inline class="background-clip"><source src="allimages/betterhealth.mp4" type="video/mp4">
+      </video>
+      <div class="content">
+        <h1>Healthcare Access</h1>
+        <a href="startmedication.html">start medication</a>
+
+      </div>      
+     </div>
+     
+     
+        <p class="video-title">About Healthcare Access
+        </p>
+    
+       <p class="video-text">Healthcare is the backborne of mankind, through our best medical accessesories, come witness the true meaning of better health. with all the best healthcare providers both serving as virtual or physical. At healthcare Access <span class="blue">its not about who came first, its bout who needs medical attention</span> 
+          </p>
+        
+      
+      
+      <p class="video-text2">All you need to do is to <span class="link"><a href="https://www.healthcare-download.com/"> download the healthcare Access application</a></span>, sign up and get started. No need to worry you actually just need your phone, tablet, or even laptop. Just in your hands, in a blink of a eye, chart with your doctor about any medical complications. You can also learn more about better health with us. </p>
+      <div class="all-images">
+      <div class="video-preview">
+        <img class="image2" src="allimages/images (2).jpeg">
+
+      </div>
+      <div class="video-preview2">
+        <img class="image" src="allimages/images.jpeg">
+
+      </div>
+      <div class="video-preview3">
+        <img class="image2" src="allimages/image3.png">
+
+      </div>
+      <div class="video-preview4">
+        <img class="image3" src="allimages/images (1).jpeg">
+
+      </div>
+      </div>
+      
+      <main>
+        <section class="faq-section">
+            <div class="container">
+                <h2>Questions about health</h2>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq1">
+                    <label for="faq1" class="faq-question">What are the symptoms of COVID-19?</label>
+                    <div class="faq-answer">
+                        <p>The symptoms may include fever, cough, and difficulty breathing. Seek medical attention if you have these symptoms.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq2">
+                    <label for="faq2" class="faq-question">How can I prevent the spread of viruses?</label>
+                    <div class="faq-answer">
+                        <p>Wash your hands frequently, wear a mask in crowded places, and maintain social distancing.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq3">
+                    <label for="faq3" class="faq-question">What should I do if I suspect food poisoning?</label>
+                    <div class="faq-answer">
+                        <p>Avoid solid foods, drink plenty of fluids, and seek medical help if symptoms persist.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq4">
+                    <label for="faq4" class="faq-question">How often should I exercise for good health?</label>
+                    <div class="faq-answer">
+                        <p>It is recommended to exercise at least 150 minutes per week, incorporating both cardio and strength training.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq5">
+                    <label for="faq5" class="faq-question">What are some healthy eating tips?</label>
+                    <div class="faq-answer">
+                        <p>Eat a variety of fruits and vegetables, choose whole grains, limit sugary drinks, and control portion sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="row">
+      <div class="imgwrapper">
+      <img src="allimages/div-image.jpg" alt="">
+    </div>
+    <div class="contentwrapper">
+      <div class="content">
+        <span class="textwrapper">
+          <span><b>Why Choose Healthcare Access?</b></span>
+  
+        </span>
+        <h2></h2>
+        <p>We offer a range of health, covering everything from physical fitness to mental well-being. Our healthcare programs are designed by leading experts to ensure you receive the best support and guidance. 
+          Our programs are designed to foster a supportive environment that promotes health and well-being.Our health and wellness programs have transformed lives and built stronger, healthier communities.
+        </p>
+        <a href="donation.html">Donate</a>
+      </div>
+  
+    </div>
+    </div>
+    <footer>
+      <div class="container1">
+        <div class="row1">
+          <div class="col1">
+            <img src="allimages/allmedication/s6.jpg" alt="Hospital Logo" class="logo1">
+            <p>We are here because of you. Strong nations in health.</p>
+            <div class="socia1l">
+              <a href="#"><i class="fab fa-facebook-f1"></i></a>
+              <a href="#"><i class="fab fa-twitter1"></i></a>
+              <a href="#"><i class="fab fa-instagram1"></i></a>
+              <a href="#"><i class="fab fa-linkedin1"></i></a>
+            </div>
+          </div>
+          <div class="col1">
+            <h3>Services</h3>
+            <div class="links1">
+              <a href="terms .html">Terms and conditions</a>
+              <a href="#">report misconduct</a>
+              <a href="#">rate us</a>
+              <a href="contactus.html">Contact us</a>
+            </div>
+          </div>
+          <div class="col1">
+            <h3>Links</h3>
+            <div class="links1">
+              <a href="about-us.html">About</a>
+              <a href="padriatic.html">Services</a>
+              <a href="terms .html">Our Policy</a>
+              <a href="#">Help</a>
+            </div>
+          </div>
+          <div class="col1">
+            <h3>Contact</h3>
+            <div class="contact-details1">
+              <i class="fas fa-map-marker-alt1"></i>
+              <p>Kampala, Makerere Avenue, Street Kasawo, Kikoni</p>
+            </div>
+            <div class="contact-details1">
+              <i class="fas fa-phone-alt1"></i>
+              <p>+256 709 167 919</p>
+            </div>
+          </div>
+        </div>
+        <div class="row1">
+          <div class="form1">
+            <form action="">
+              <input type="email1" placeholder="Email us here...">
+              <button type="submit1"><i class="fas fa-paper-plane1"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+   
+
+  </body>
+</html>

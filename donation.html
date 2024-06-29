@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donation Page</title>
+    <style>
+        
+       
+        .donation-form {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+        .donation-form input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .donation-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .donation-form input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        .donation-received {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            z-index: 1;
+        }
+        .donation-received .close-btn {
+            cursor: pointer;
+            float: right;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Donation Page</h1>
+<form class="donation-form" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="amount">Donation Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+
+    <input type="submit" value="Make Donation">
+</form>
+<div class="donation-received" id="donationSuccess">
+    <span class="close-btn" onclick="hideDonationSuccess()">&times;</span>
+    <p>Donation successful!</p>
+</div>
+<div class="donation-received" style="display:none;">
+    <h2>Donations Received:</h2>
+    <ul id="donation-list">
+      
+    </ul>
+</div>
+<script>
+    function validateForm() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const amount = document.getElementById("amount").value;
+
+        if (name === "" || email === "" || amount === "") {
+            alert("Please fill in all fields.");
+            return false;
+        }
+
+        return true;
+    }
+
+    function displayDonations(name, amount, email) {
+        const donationList = document.getElementById("donation-list");
+        const donationReceived = document.querySelector(".donation-received");
+        const donationSuccess = document.getElementById("donationSuccess");
+
+        donationReceived.style.display = "block";
+        const listItem = document.createElement("li");
+        listItem.textContent = `${name} - $${amount}`;
+        donationList.appendChild(listItem);
+
+        
+        donationSuccess.style.display = "block";
+
+        sendEmailNotification(email);
+    }
+
+    
+    function sendEmailNotification(email) {
+        
+        alert(`Thank you for supporting us!\nEmail notification sent to: ${email}`);
+    }
+
+    
+    function hideDonationSuccess() {
+        const donationSuccess = document.getElementById("donationSuccess");
+        donationSuccess.style.display = "none";
+    }
+
+    
+    function resetForm() {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("amount").value = "";
+    }
+
+    document.querySelector(".donation-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const amount = document.getElementById("amount").value;
+        displayDonations(name, amount, email);
+        resetForm(); 
+    });
+</script>
+</body>
+</html>

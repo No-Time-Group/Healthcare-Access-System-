@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #007bff; /* Hospital theme color */
+        }
+        .terms-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .terms-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .terms {
+            width: 60%;
+        }
+        p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .checkbox-container {
+            margin-top: 20px;
+        }
+        .checkbox-container label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .notes {
+            margin-top: 20px;
+            color: #777;
+        }
+        .next-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+        .next-button.active {
+            display: inline-block;
+        }
+        a {
+            color: #007bff; 
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Terms and Conditions</h1>
+        <div class="terms-container">
+            <img src="allimages/allmedication/s4.jpg" alt="Terms and Conditions">
+            <div class="terms">
+                <h2>1. Introduction</h2>
+                <p>Welcome to our website. By continuing to browse and use this website, you agree to comply with and be bound by the following terms and conditions of use.</p>
+                <h2>2. Definitions</h2>
+                <p>
+                    <b>Medical Disclaimers:</b> This website does not provide medical advice. Always consult a healthcare professional.
+                    <br><b>Privacy Policy:</b> Your privacy is protected in accordance with HIPAA regulations. Personal information is not shared without consent.
+                    <br><b>Limitation of Liability:</b> We do not guarantee the accuracy of information on this website. Use it at your own risk.
+                    <br><b>Health Information:</b> General health information is provided here and should not substitute professional medical advice.
+                    <br><b>Security and Data Protection:</b> Measures are taken to secure user data. Encryption and secure servers are used.
+                </p>
+                <h2>3. Use of Website</h2>
+                <ul>
+                    <li>The content of this website is for general information purposes only. It is subject to change without notice.</li>
+                    <li>This website uses cookies to improve user experience.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="checkbox-container">
+            <label>
+                <input type="checkbox" id="agree-checkbox" onchange="checkAgreement()"> I agree to the Terms and Conditions
+            </label>
+        </div>
+        <div class="notes">
+            <h2>Additional Notes</h2>
+            <p>By agreeing to these terms, you also consent to our <a href="#">Privacy Policy</a> and <a href="#">Cookie Policy</a>.</p>
+            <p>If you have any questions about these terms and conditions, please contact us at <a href="mailto:contact@example.com">contact@example.com</a>.</p>
+        </div>
+        <button id="next-btn" class="next-button" onclick="navigateToNextPage()">
+            <a href="login.html">Next</a>
+        </button>
+    </div>
+
+    <script>
+        function checkAgreement() {
+            var checkBox = document.getElementById("agree-checkbox");
+            var nextButton = document.getElementById("next-btn");
+
+            nextButton.style.display = checkBox.checked ? "inline-block" : "none";
+        }
+
+        function navigateToNextPage() {
+            alert("Proceeding to the next step...");
+           
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Access System Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+            margin: 0;
+            padding: 0;
+            background-image:url('allimages/dashback.png') ;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .notifications, .quick-access, .appointment-booking {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            flex: 1;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .notifications {
+            margin-right: 10px; /* Adjust margin for spacing */
+        }
+        .notifications .join-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .notification, .appointment {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .notification:last-child, .appointment:last-child {
+            border-bottom: none;
+        }
+        .quick-access h2, .appointment-booking h2 {
+            margin-bottom: 10px;
+        }
+        .getstarted-button{
+            
+        background-color: rgb(201, 5, 5);
+        color:white;
+        border: none;
+        height: 50px;
+        width: 130px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 8px;
+        transition: opacity 0.15s;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        
+        
+
+        }
+        .getstarted-button:hover{
+            
+       opacity: 0.7;
+      }
+      .getstarted-button:active{
+        opacity: 0.5;
+      }
+      .button-housing{
+        text-align: right;
+      }
+      
+        .submit{
+        background-color: white;
+        border-color: rgb(96, 119, 138);
+        border-style: solid;
+        border-width: 1px;
+        color: rgb(78, 78, 206);
+        height: 38px;
+        width: 62;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: background-color 0.15s,
+        color 0.1s;
+      }
+      .submit:hover{
+        background-color: rgb(73, 73, 189);
+        color: white;
+      }
+      .submit:active{
+        opacity: 0.7;
+      }
+      .submitdiv{
+        text-align: right;
+      }
+      
+
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Healthcare Access System Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <nav>
+            <a href="#appointments">Appointments</a>
+            <a href="#health-records">Health Records</a>
+            <a href="#telemedicine">Telemedicine</a>
+            <a href="#reports">Reports</a>
+        </nav>
+
+        <div class="dashboard">
+            <div class="notifications">
+                
+                <h2>Notifications & Updates</h2>
+                <div class="notification">Notification 1: Update on your recent appointment.</div>
+                <div class="notification">Notification 2: New message from your doctor.</div>
+                <div class="notification">Notification 3: Your health report is ready.</div>
+            </div>
+            <div class="quick-access">
+                <h2>Quick Access</h2>
+                <div class="appointments">
+                    <h3>Upcoming Appointments</h3>
+                    <div class="appointment">Appointment with Dr. Hillary on 07/07/2024 at 10:00 AM</div>
+                    <div class="appointment">Appointment with Dr. Samuel on 07/07/2024 at 2:00 PM</div>
+                </div>
+            </div>
+            <div class="appointment-booking">
+                <h2>Appointment Booking</h2>
+                <form class="booking-form">
+                    <label for="doctor">Choose Doctor:</label>
+                    <select id="doctor" name="doctor">
+                        <option value="dr-Hillary">Dr. Hillary</option>
+                        <option value="dr-samuel">Dr. Samuel</option>
+                    </select>
+                    <label for="date">Select Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <div class="submitdiv">
+                        <button class="submit">
+                            Book Appointment
+                        </button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        <div class="button-housing">
+            <button class="getstarted-button">
+                <a class="getstarted" href="startmedication.html">get started</a> 
+            </button>
+        </div>
+        
+    </div>
+
+</body>
+</html>

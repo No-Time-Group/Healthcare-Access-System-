@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Medication Treatment</title>
+    <style>
+        /* Custom styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0; /* Background color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff; /* Content background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .mySlides {
+            display: none;
+            width: 500px;
+        }
+        .mySlides img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        .join-meeting-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #007bff; /* Button background color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .medication-list {
+            margin-top: 20px;
+        }
+        .medication-list label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .medication-list input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 34px);
+            margin-right: 10px;
+        }
+        .medication-list input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Start Medication Treatment</h1>
+        
+        <!-- Slideshow container for medication images -->
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="allimages/codralcoldandflu.jpeg" alt="Medication 1">
+                <div class="text">Medication 1 - Description goes here</div>
+            </div>
+            <div class="mySlides">
+                <img src="allimages/padriatic/P4.jpg" alt="Medication 2">
+                <div class="text">Medication 2 - Description goes here</div>
+            </div>
+            <div class="mySlides">
+                <img src="allimages/padriatic/P7.jpg" alt="Medication 3">
+                <div class="text">Medication 3 - Description goes here</div>
+            </div>
+            <!-- Add more slides as needed -->
+            <div class="mySlides">
+                <img src="allimages/allmedication/s5.jpg" alt="Medication 4">
+                <div class="text">Medication 4 - Description goes here</div>
+            </div>
+            <div class="mySlides">
+                <img src="allimages/allmedication/sA.jpg" alt="Medication 5">
+                <div class="text">Medication 5 - Description goes here</div>
+            </div>
+            <!-- Add more slides as needed -->
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <!-- Join live meeting button -->
+        <a href="https://meet.google.com/your-meeting-id" class="join-meeting-btn">Join Live Meeting with Doctors</a>
+        
+        <!-- Medication search bar -->
+        <div class="medication-list">
+            <form id="medication-search-form" onsubmit="return searchMedication()">
+                <input type="text" id="medication-input" placeholder="Search for a medication...">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for slideshow functionality and medication search -->
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        function plusSlides(n) {
+            clearTimeout(timeout);
+            slideIndex += n;
+            showSlides();
+        }
+
+        function searchMedication() {
+            var medication = document.getElementById("medication-input").value;
+            if (medication.trim() !== "") {
+                var googleSearchUrl = "https://www.google.com/search?q=" + encodeURIComponent(medication);
+                window.open(googleSearchUrl, "_blank");
+            }
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Access Shopping Cart</title>
+    <style>
+        body {
+            background-image: url('allimages/healthcare-technology.jpg'); 
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: greenyellow;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        #cart-icon {
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        #cart-counter {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        #product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 2px;
+        }
+
+        .product {
+            background-color: #f0f0f0; 
+            border-radius: 4px;
+            padding: 10px;
+            margin: 2px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 80px;
+            max-height: 80px;
+            margin-bottom: 5px;
+        }
+
+        #shopping-cart {
+            background-color: #e0f7fa; /* Light blue for hospital sense */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            display: none;
+        }
+
+        .cart-items {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .cart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .cart-item img {
+            max-width: 60px;
+            max-height: 60px;
+            margin-bottom: 5px;
+        }
+
+        .cart-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        
+        }
+
+        .cart-controls button {
+            padding: 10px;
+            background-color: #2196F3;
+            color: blueviolet;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #order-now, #clear-cart {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #2196F3;
+            color: white;
+            display: none;
+        }
+
+        #message {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        #message button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            float: right;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Product List</h1>
+            <svg id="cart-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+            </svg>
+            <div id="cart-counter">0</div>
+        </header>
+        <div id="product-list">
+            
+        </div>
+    </div>
+
+    <div id="shopping-cart">
+        <div class="cart-items">
+            
+        </div>
+        <div class="cart-controls">
+            <button id="prev-item">←</button>
+            <button id="next-item">→</button>
+        </div>
+        <button id="order-now">Order Now</button>
+        <button id="clear-cart">Clear Cart</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script>
+        
+        const products = [
+            { id: 1, name: "Allergy medicine", price: 10, image: "allimages/allergy.jpeg" },
+            { id: 2, name: "bandage", price: 15, image: "allimages/platers.jpeg" },
+            { id: 3, name: "flu fed", price: 20, image: "allimages/flu warria.jpeg" },
+            { id: 4, name: "codralcold and flu", price: 25, image: "allimages/codralcoldandflu.jpeg" },
+            { id: 5, name: "yoga mart", price: 30, image: "allimages/yoga-mat.jpeg" },
+            { id: 6, name: "Nystatin", price: 35, image: "allimages/mupricon.jpeg" },
+            { id: 7, name: "Mupirocin", price: 40, image: "allimages/nyasty.jpeg" },
+            { id: 8, name: "Budesonide/target", price: 45, image: "allimages/codralcoldandflu.jpeg" },
+            { id: 7, name: "prednisone", price: 40, image: "allimages/pre.jpeg" },
+            { id: 8, name: "Trldin HEXAL comp", price: 45, image: "allimages/tildrin.jpeg" }
+        ];
+
+        const productList = document.getElementById('product-list');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartCounter = document.getElementById('cart-counter');
+        const shoppingCart = document.getElementById('shopping-cart');
+        const orderNowButton = document.getElementById('order-now');
+        const clearCartButton = document.getElementById('clear-cart');
+        const messageDiv = document.getElementById('message');
+        const prevItemButton = document.getElementById('prev-item');
+        const nextItemButton = document.getElementById('next-item');
+
+        let cartItems = [];
+        let currentItemIndex = 0;
+
+        // Initialize product list
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+
+            const image = document.createElement('img');
+            image.src = product.image; // Set image source
+            image.alt = product.name;
+
+            const name = document.createElement('p');
+            name.textContent = product.name;
+
+            const price = document.createElement('p');
+            price.textContent = `$${product.price}`;
+
+            const addButton = document.createElement('button');
+            addButton.textContent = 'Add to Cart';
+            addButton.addEventListener('click', () => addToCart(product));
+
+            productDiv.appendChild(image);
+            productDiv.appendChild(name);
+            productDiv.appendChild(price);
+            productDiv.appendChild(addButton);
+
+            productList.appendChild(productDiv);
+        });
+
+        // Add to cart function
+        function addToCart(product) {
+            cartItems.push(product);
+            updateCartIcon();
+            displayCartItems();
+        }
+
+        // Update cart icon with count
+        function updateCartIcon() {
+            cartCounter.textContent = cartItems.length;
+        }
+
+        // Display cart items
+        function displayCartItems() {
+            shoppingCart.style.display = 'block';
+            const cartItemsDiv = document.querySelector('.cart-items');
+            cartItemsDiv.innerHTML = '';
+
+            cartItems.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+
+                const image = document.createElement('img');
+                image.src = item.image; // Set image source
+                image.alt = item.name;
+
+                const name = document.createElement('p');
+                name.textContent = item.name;
+
+                const price = document.createElement('p');
+                price.textContent = `$${item.price}`;
+
+                cartItemDiv.appendChild(image);
+                cartItemDiv.appendChild(name);
+                cartItemDiv.appendChild(price);
+
+                cartItemsDiv.appendChild(cartItemDiv);
+            });
+
+            if (cartItems.length > 0) {
+                orderNowButton.style.display = 'block';
+                clearCartButton.style.display = 'block';
+                updateCurrentItem();
+            }
+        }
+
+        // Update current displayed item in cart
+        function updateCurrentItem() {
+            const cartItemsDiv = document.querySelector('.cart-items');
+            const items = cartItemsDiv.querySelectorAll('.cart-item');
+            items.forEach((item, index) => {
+                if (index === currentItemIndex) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Order now button click event
+        orderNowButton.addEventListener('click', () => {
+            messageDiv.textContent = 'Thank you for shopping with us! Your goods will arrive shortly.';
+            messageDiv.style.display = 'block';
+            messageDiv.innerHTML += '<button id="close-message">X</button>';
+        });
+
+        // Close message button click event
+        messageDiv.addEventListener('click', (e) => {
+            if (e.target.id === 'close-message') {
+                messageDiv.style.display = 'none';
+            }
+        });
+
+        // Clear cart button click event
+        clearCartButton.addEventListener('click', () => {
+            cartItems = [];
+            cartCounter.textContent = '0';
+            displayCartItems();
+            orderNowButton.style.display = 'none';
+            clearCartButton.style.display = 'none';
+        });
+
+        // Previous item button click event
+        prevItemButton.addEventListener('click', () => {
+            if (currentItemIndex > 0) {
+                currentItemIndex--;
+                updateCurrentItem();
+            }
+        });
+
+        // Next item button click event
+        nextItemButton.addEventListener('click', () => {
+            if (currentItemIndex < cartItems.length - 1) {
+                currentItemIndex++;
+                updateCurrentItem();
+            }
+        });
+    </script>
+</body>
+</html>

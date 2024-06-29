@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pediatric Care Services</title>
+    <style>
+        body{
+            padding: 50px;
+            display: grid;
+             place-items: center;
+             height: 100vh;
+        }
+        .service-container {
+            display: flex;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            width: 70%;
+            
+
+            
+        }
+        .service-text {
+            flex: 1;
+            padding-right: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .service-text h2 {
+            margin-bottom: 10px;
+        }
+        .service-text p,
+        .service-text ul {
+            margin-bottom: 10px;
+        }
+        .slideshow {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            
+            border-radius: 20px;
+            
+            
+            
+        }
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s;
+            opacity: 0; 
+        }
+        .slideshow .img-active {
+            opacity: 1; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Pediatric Care Services</h1>
+    
+    <div class="service-container">
+        <div class="service-text">
+            <h2>The Importance of Early Childhood Developmental Screenings</h2>
+            <p>Early childhood developmental screenings are essential for tracking a child's cognitive, social, emotional, and physical progress. These screenings help identify potential developmental delays or disabilities, allowing for early intervention and support</p>
+            <ul>
+                <li>Routine check-ups</li>
+                <li>Vaccinations</li>
+                <li>Developmental assessments</li>
+            </ul>
+        </div>
+        <div class="slideshow">
+            <img src="allimages/padriatic/P2.jpg" class="img-active">
+            <img src="allimages/padriatic/P7.jpg">
+            <img src="allimages/padriatic/P6.jpg">
+        </div>
+    </div>
+
+    <div class="service-container">
+        <div class="service-text">
+            <h2>Understanding and Managing Childhood Asthma</h2>
+            <p>Asthma is a widespread condition among children, affecting 14% of children and young people around the world. Asthma has no cure, but it can be managed with the right treatment.
+               
+                </p>
+            <ul>
+                <li>Diagnosis and treatment of illnesses</li>
+                <li>Medication management</li>
+                <li>Follow-up care</li>
+            </ul>
+        </div>
+        <div class="slideshow">
+            <img src="allimages/padriatic/P6.jpg" class="img-active">
+            <img src="allimages/padriatic/P1.jpg">
+            <img src="allimages/padriatic/P5.jpg">
+        </div>
+    </div>
+
+    <div class="service-container">
+        <div class="service-text">
+            <h2>Building Resilience in Children: Strategies for Parents</h2>
+            <p>Building resilience in children is crucial for their emotional and mental well-being. Resilience helps children cope with challenges, setbacks, and failures, and develop the ability to bounce back from adversity.</p>
+            <ul>
+                <li>Developmental assessments</li>
+                <li>Behavioral therapy</li>
+                <li>Speech and language therapy</li>
+            </ul>
+        </div>
+        <div class="slideshow">
+            <img src="allimages/padriatic/P7.jpg" class="img-active">
+            <img src="allimages/allmedication/s6.jpg">
+            <img src="allimages/black.jpeg">
+        </div>
+    </div>
+
+    
+    <script>
+       
+        const slideshows = document.querySelectorAll('.slideshow');
+        slideshows.forEach(slideshow => {
+            const imgs = slideshow.querySelectorAll('img');
+            let currentImg = 0; 
+            imgs[currentImg].classList.add('img-active'); 
+            
+            setInterval(() => {
+                imgs[currentImg].classList.remove('img-active'); 
+                currentImg = (currentImg + 1) % imgs.length; 
+                imgs[currentImg].classList.add('img-active'); 
+            }, 4000); 
+        });
+    </script>
+</body>
+</html>
