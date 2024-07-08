@@ -53,10 +53,169 @@
             line-height: 20px;
             color: white;
         }
+        .imagefull{
+            width: 100%;
+        }
+        .middle{
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: whitesmoke;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 3rem 1rem;
+
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: aquamarine;
+      
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      color: blue;
+      
+    }
+    .col {
+      flex: 1 1 300px;
+      margin-right: 1rem;
+      
+    }
+    .col:last-child {
+      margin-right: 0;
+    }
+    .col h3 {
+      color: #ff3366;
+      margin-bottom: 1rem;
+      position: relative;
+      font-size: 1.5rem;
+    }
+    .col h3::after {
+      content: '';
+      height: 3px;
+      width: 50px;
+      background-color: #ff3366;
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    .col h3:hover::after {
+      width: 30px;
+    }
+    .col .social a i {
+      color: #ff3366;
+      font-size: 1.5rem;
+      margin-right: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .col .social a i:hover {
+      transform: scale(1.3);
+      filter: grayscale(25%);
+    }
+    .col .links a {
+      color: blue;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .col .links a:hover {
+      transform: translateX(-5px);
+      color: #ff3366;
+    }
+    .col .contact-details {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .col .contact-details i {
+      font-size: 1.2rem;
+      margin-right: 10px;
+      color: #ff3366;
+    }
+    .form {
+      display: flex;
+      align-items: center;
+    }
+    .form input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .form button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff3366;
+      color: white;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .col {
+        flex: 1 1 100%;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        
+      }
+    }
+    .logo{
+        width: 100px;
+    }
+    .followimages{
+        width: 30px;
+    }
+    .followimage{
+        display: flex;
+        flex-direction: column;
+    }
+    .middle{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 20px;
+    }
+    .formz{
+        color: rgb(105, 105, 237);
+        text-align: center;
+    }
+    
+
+
     </style>
 </head>
 <body>
-<h1>Donation Page</h1>
+    <div>
+        
+       
+        <img class="imagefull" src="allimages/shopaclt.jpg">
+        <div class="middle">
+            <p>Thanks for choosing Healthcare Access because of you we exist</p>
+            <P>follow up our operation as patterning with us to save many lives both in Africa and in the world</P>
+
+        </div>
+
+    </div>
+<h1 class="formz">Donation form</h1>
 <form class="donation-form" onsubmit="return validateForm()">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
@@ -79,6 +238,60 @@
       
     </ul>
 </div>
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img class="logo" src="allimages/logo.jpg" alt="Hospital Logo" class="logo">
+          <p>We are here because of you. Strong nations in health.</p>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col">
+          <h3>supporting</h3>
+          <div class="links">
+            <a href="rateus.html">rate us</a>
+            <a href="donation.html">support us</a>
+            <a href="pharmacy.html">pharmacteucals</a>
+            <a href="#">vist us</a>
+          </div>
+        </div>
+        <div class="col">
+          <h3>healthcare</h3>
+          <div class="links">
+            <a href="about-us.html">About</a>
+            <a href="pharmacy.html">Services</a>
+            <a href="terms .html">Our Policy</a>
+            <a href="help.html">Help</a>
+          </div>
+        </div>
+        <div class="col">
+          <h3>Address</h3>
+          <div class="contact-details">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Kampala, <br>Makerere Avenue, <br>Street Kasawo, <br>Kikoni</p>
+          </div>
+          <div class="contact-details">
+            <i class="fas fa-phone-alt"></i>
+            <p>+256 709 167 919</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form">
+          <form action="">
+            <input type="email" placeholder="Email us here...">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 <script>
     function validateForm() {
         const name = document.getElementById("name").value;

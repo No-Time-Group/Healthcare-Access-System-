@@ -4,11 +4,11 @@
     <title>Dental Care Services</title>
     <style>
 			body{
-				padding: 50px;
-            display: grid;
+			 padding: 50px;
+             display: grid;
              place-items: center;
              height: 100vh;
-						 background-color: greenyellow;
+			 background-color: greenyellow;
 			}
         .slideshow {
             width: 300px;
@@ -16,10 +16,10 @@
             margin: 20px 0;
             display: flex;
             justify-content: space-between; 
-						/* to evenly space images */
+						
         }
         .slideshow img {
-            width: 48%; /* adjust width as needed */
+            width: 48%; 
             height: 100%;
             object-fit: cover;
             transition: opacity 0.5s;
@@ -31,7 +31,7 @@
         }
         .service-container .content {
             flex: 1;
-            padding: 0 20px; /* adjust padding as needed */
+            padding: 0 20px; 
         }
         .service-container .slideshow-container {
             flex: 1;
@@ -46,7 +46,9 @@
 
     <div class="service-container">
         <div class="content">
-            <h2>Tooth Decay services</h2>
+            <h2>
+            <a href="#">Tooth Decay services</a>    
+            </h2>
             <p>Cavities can develop when bacteria in our mouth break down food particles, especially sugars and starches. Regular brushing, flossing, and check-ups can help prevent tooth decay.
 						</p>
             <ul>
@@ -66,7 +68,10 @@
 
     <div class="service-container">
         <div class="content">
-            <h2>Dental Fillings services</h2>
+            <h2>
+             <a href="#">Dental Fillings services</a>   
+
+            </h2>
             <p>Dental fitting refers to the process of adjusting or modifying a dental appliance, such as dentures, braces, or a mouthguard, to ensure a proper fit and comfortable wear. A proper dental fitting is crucial to:
 						</p>
             <ul>
@@ -86,7 +91,9 @@
 
     <div class="service-container">
         <div class="content">
-            <h2>Dental Crowns</h2>
+            <h2>
+            <a href="#">Dental Crowns services</a>    
+            </h2>
             <p>A dental crown is a cap that is fitted over a tooth, either to protect it from damage or to restore its shape and appearance.
 						</p>
             <ul>
@@ -104,7 +111,7 @@
         </div>
     </div>
 
-    <!-- Add more services and slideshows as needed -->
+    
     <script>
         // Slideshow script
         const slideshows = document.querySelectorAll('.slideshow');

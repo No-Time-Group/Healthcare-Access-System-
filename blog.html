@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Access Blog</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header, footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            margin: 5px 0;
+        }
+
+        .blog {
+            padding: 20px 0;
+        }
+
+        article {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .post-content {
+            margin-bottom: 15px;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .post-content .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .post-content .button:hover {
+            background-color: #0056b3;
+        }
+
+        .expanded-content {
+            display: none;
+            margin-top: 20px;
+        }
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Healthcare Access Blog</h1>
+            <p>Exploring Healthcare Technology, Patient Education, and More</p>
+        </div>
+    </header>
+
+    <section class="blog">
+        <div class="container">
+            <article class="post">
+                <header>
+                    <h2>Telemedicine: Bridging Gaps in Healthcare Access</h2>
+                    <p class="meta">Published on <time datetime="2024-06-30">June 30, 2024</time></p>
+                </header>
+                <div class="post-content">
+                    <p>Telemedicine has revolutionized healthcare delivery by leveraging technology to connect patients and healthcare providers remotely. It enables...</p>
+                    <figure>
+                        <img class="resize image" src="allimages/blog1.jpg" alt="Telemedicine">
+                        
+                    </figure>
+                    <p>...</p>
+                    <p>Learn more about the impact of telemedicine on healthcare access and how it's reshaping...</p>
+                    <a href="#" class="button read-more-btn">Read More</a>
+                </div>
+                <div class="expanded-content">
+                    <p>Telemedicine has been successfully implemented across various regions and for different medical conditions, showcasing its versatility and effectiveness in enhancing healthcare access
+
+                       In remote regions lacking nearby healthcare facilities, telemedicine connects patients with specialists located in urban centers.                     
+                       Telestroke programs enable neurologists to remotely diagnose and treat stroke patients in real-time, significantly reducing treatment delays and improving outcomes.
+                       Platforms like Talkspace and BetterHelp offer online therapy sessions, making mental health support more accessible to individuals in rural or underserved areas.</p>
+                </div>
+            </article>
+
+            <article class="post">
+                <header>
+                    <h2>Challenges in Rural Healthcare Access</h2>
+                    <p class="meta">Published on <time datetime="2024-06-29">June 29, 2024</time></p>
+                </header>
+                <div class="post-content">
+                    <p>Accessing healthcare in rural areas presents unique challenges due to geographic and infrastructure limitations. This article explores...</p>
+                    <figure>
+                        <img class="resizeimage" src="allimages/blog2.jpg" alt="Rural Healthcare">
+                        
+                    </figure>
+                    <p>...</p>
+                    <p>Discover initiatives and technologies aiming to improve healthcare access in rural communities...</p>
+                    <a href="#" class="button read-more-btn">Read More</a>
+                </div>
+                <div class="expanded-content">
+                    <p>Improved Access: Patients can now access healthcare services without the need for travel, which is particularly beneficial for elderly patients, those with mobility issues, or individuals residing in remote locations.
+
+                      Virtual consultations reduce wait times for appointments, leading to quicker diagnosis and treatment initiation. This is critical for conditions requiring immediate attention, such as stroke or acute respiratory illnesses.
+                      
+                      Specialist Access: Telemedicine connects patients with specialists worldwide, overcoming geographical limitations. For example, a rural primary care provider can consult with a dermatologist via telemedicine for skin conditions.</p>
+                </div>
+            </article>
+
+            <article class="post">
+                <header>
+                    <h2>Role of Digital Health Apps in Patient Care</h2>
+                    <p class="meta">Published on <time datetime="2024-06-28">June 28, 2024</time></p>
+                </header>
+                <div class="post-content">
+                    <p>Digital health apps have transformed how patients manage their health, providing tools for monitoring conditions, accessing medical advice, and more...</p>
+                    <figure>
+                        <img class="resizeimage" src="allimages/blog3.jpg" alt="Digital Health Apps">
+                        
+                    </figure>
+                    <p>...</p>
+                    <p>Explore the benefits and challenges of integrating digital health apps into patient care...</p>
+                    <a href="#" class="button read-more-btn">Read More</a>
+                </div>
+                <div class="expanded-content">
+                    <p>Virtual Reality (VR): VR is used for immersive telehealth experiences, such as virtual consultations where patients can interact with healthcare providers as if they were in the same room.
+
+                      AI-driven Diagnostics: AI algorithms analyze medical images and patient data to assist healthcare providers in diagnosing conditions accurately and promptly, enhancing diagnostic capabilities in telemedicine settings.
+                      
+                      Remote Monitoring Devices: Wearable devices and sensors enable continuous monitoring of patients' vital signs and health metrics remotely, facilitating proactive healthcare management and early intervention.</p>
+                </div>
+            </article>
+
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Healthcare Access Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.read-more-btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const postContent = this.parentElement.querySelector('.post-content');
+                    const expandedContent = this.parentElement.nextElementSibling;
+
+                    if (expandedContent.style.display === 'block') {
+                        expandedContent.style.display = 'none';
+                        this.textContent = 'Read More';
+                    } else {
+                        expandedContent.style.display = 'block';
+                        this.textContent = 'Read Less';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

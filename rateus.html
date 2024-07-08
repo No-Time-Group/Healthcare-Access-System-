@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+        }
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
+            color: #fdd835;
+        }
+        .rating input:checked ~ label:hover,
+        .rating label:hover ~ input:checked ~ label {
+            color: #ffc107;
+        }
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: #ccc;
+        }
+        .rating input:checked ~ label {
+            color: #fdd835;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: auto;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rate Us</h1>
+        <p>We value your feedback! Please rate your experience with us:</p>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">&#9733;</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">&#9733;</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">&#9733;</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">&#9733;</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">&#9733;</label>
+        </div>
+        <form id="feedbackForm">
+            <label for="comments">Comments (optional):</label><br>
+            <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br>
+            <input type="submit" value="Submit Feedback">
+            <p id="error" class="error-message"></p>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.rating input');
+            const submitButton = document.querySelector('input[type="submit"]');
+            const errorElement = document.getElementById('error');
+
+            let ratingValue = null;
+
+            stars.forEach(star => {
+                star.addEventListener('change', function() {
+                    ratingValue = this.value;
+                    highlightStars(ratingValue);
+                });
+            });
+
+            function highlightStars(value) {
+                stars.forEach(star => {
+                    if (star.value <= value) {
+                        star.nextElementSibling.style.color = '#fdd835';
+                    } else {
+                        star.nextElementSibling.style.color = '#ccc';
+                    }
+                });
+            }
+
+            document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                if (!ratingValue) {
+                    errorElement.textContent = 'Please select a rating.';
+                    return;
+                }
+
+                // Reset error message
+                errorElement.textContent = '';
+
+                // Simulate form submission (replace with actual submission logic)
+                setTimeout(function() {
+                    alert('Feedback submitted successfully!');
+                    // Reset form
+                    document.getElementById('feedbackForm').reset();
+                    ratingValue = null;
+                    stars.forEach(star => {
+                        star.checked = false;
+                    });
+                    stars.forEach(star => {
+                        star.nextElementSibling.style.color = '#ccc';
+                    });
+                }, 1000); // Simulating delay for demo purposes
+            });
+        });
+    </script>
+</body>
+</html>

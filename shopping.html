@@ -147,6 +147,8 @@
             float: right;
             cursor: pointer;
         }
+    
+      
         
     </style>
 </head>
@@ -296,7 +298,9 @@
         orderNowButton.addEventListener('click', () => {
             messageDiv.textContent = 'Thank you for shopping with us! Your goods will arrive shortly.';
             messageDiv.style.display = 'block';
+            
             messageDiv.innerHTML += '<button id="close-message">X</button>';
+            
         });
 
         // Close message button click event
